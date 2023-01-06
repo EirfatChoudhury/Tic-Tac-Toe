@@ -1,6 +1,5 @@
 from model import Model
 from view import View
-import sys
 
 class Controller():
     def __init__(self):
@@ -21,7 +20,7 @@ class Controller():
             result = self.model.check_winner("X")
             keep_playing = self.view.print_winner(result, "X")
             if keep_playing == False:
-                sys.exit()
+                self.model.restart_program()
 
             board_map = self.model.enemy_turn()
             self.view.print_updated_board(board_map)
@@ -29,7 +28,7 @@ class Controller():
             result = self.model.check_winner("O")
             keep_playing = self.view.print_winner(result, "O")
             if keep_playing == False:
-                sys.exit()
+                self.model.restart_program()
     
 if __name__ == "__main__":
     app = Controller()

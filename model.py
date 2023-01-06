@@ -1,4 +1,6 @@
 from random import choice
+import sys
+import os
 
 class Model():
     def __init__(self):
@@ -69,3 +71,8 @@ class Model():
             result = False
         
         return result
+    
+    def restart_program(self):
+        python = sys.executable
+        input("Press enter to restart!")
+        os.execl(python, python, * sys.argv)
