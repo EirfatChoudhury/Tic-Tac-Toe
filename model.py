@@ -2,7 +2,7 @@ from random import choice
 
 class Model():
     def __init__(self):
-        self.board = ["#" for range in range(10)]
+        self.board = [" " for range in range(10)]
         self.taken_spots = []
     
     def ask_input(self):
