@@ -1,6 +1,9 @@
+from random import choice
+
 class Model():
     def __init__(self):
         self.board = ["#" for range in range(10)]
+        self.taken_spots = []
     
     def ask_input(self):
         try:
@@ -9,12 +12,14 @@ class Model():
                 return False
         except (ValueError):
             return False
-        return user_input
-    
-    def update_board(self, changed_index=0, letter=" "):
-        if self.board[changed_index] in ["O", "X"]:
+
+        if user_input in self.taken_spots:
             return False
         
+        self.taken_spots.append(user_input)
+        return user_input
+    
+    def update_board(self, changed_index=0, letter=" "): 
         row = 1
         board_map = []
         index = 1
@@ -39,3 +44,11 @@ class Model():
                 break_count_horizontal += 1
 
         return "".join(board_map)
+
+    def enemy_turn(self):
+        num = choice(list(set([x for x in range(1, 10)]) - set(self.taken_spots)))
+        self.taken_spots.append(num)
+        return self.update_board(num, "O")
+    
+    def check_winner(self):
+        pass

@@ -10,11 +10,14 @@ class View():
         pass
 
     def print_updated_board(self, board_map):
-        if board_map == False:
-            return print("Position already filled")
-        
-        return print(board_map, end="")
+        print(board_map)
     
     def confirm_input(self, user_input):
         if user_input == False:
-            print("Please enter a number from 1-9")
+            print("Please enter a number from 1-9, where a position has not been filled")
+            return 0
+        
+        return 1
+    
+    def print_winner(self, result):
+        pass
