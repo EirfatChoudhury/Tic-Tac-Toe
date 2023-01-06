@@ -7,10 +7,13 @@ class Controller():
         self.view = View(self)
     
     def main(self):
-        self.view.main()
-    
-    def take_input(self, user_input):
-        pass
+        board_map = self.model.update_board()
+        self.view.print_updated_board(board_map)
+        while True:
+            user_input = self.model.ask_input()
+            self.view.confirm_input(user_input)
+            board_map = self.model.update_board(user_input, "X")
+            self.view.print_updated_board(board_map)
     
 if __name__ == "__main__":
     app = Controller()
