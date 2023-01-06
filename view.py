@@ -19,5 +19,9 @@ class View():
         
         return 1
     
-    def print_winner(self, result):
-        pass
+    def print_winner(self, result, letter):
+        if result == True:
+            print(f"Player {letter} wins!")
+            return False
+        
+        return True

@@ -50,5 +50,20 @@ class Model():
         self.taken_spots.append(num)
         return self.update_board(num, "O")
     
-    def check_winner(self):
-        pass
+    def check_winner(self, letter):
+        if (self.board[1] == letter and self.board[2] == letter and self.board[3] == letter):
+            result = True 
+        elif (self.board[1] == letter and self.board[4] == letter and self.board[7] == letter):
+            result = True 
+        elif (self.board[1] == letter and self.board[5] == letter and self.board[9] == letter):
+            result = True
+        elif (self.board[7] == letter and self.board[8] == letter and self.board[9] == letter):
+            result = True
+        elif (self.board[3] == letter and self.board[6] == letter and self.board[9] == letter):
+            result = True
+        elif (self.board[4] == letter and self.board[5] == letter and self.board[6] == letter):
+            result = True
+        else:
+            result = False
+        
+        return result
