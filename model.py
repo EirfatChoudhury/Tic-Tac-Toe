@@ -63,6 +63,8 @@ class Model():
             result = True
         elif (self.board[4] == letter and self.board[5] == letter and self.board[6] == letter):
             result = True
+        elif (self.board[3] == letter and self.board[5] == letter and self.board[7] == letter):
+            result = True
         else:
             result = False
         
